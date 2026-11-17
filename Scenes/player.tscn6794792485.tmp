@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://tettfd0lgrqg"]
+
+[ext_resource type="Script" uid="uid://dlbt6gf7hk4cp" path="res://Scripts/camera_pivot.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://clgb565anihj4" path="res://Scripts/player_rotation.gd" id="1_vgqql"]
+[ext_resource type="Texture2D" uid="uid://bon64gnv51a2r" path="res://Textures/Marlinboros.jpg" id="2_6t5aa"]
+[ext_resource type="Script" uid="uid://dgcf70ag7gdiu" path="res://Scripts/cursor.gd" id="2_cvnsp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qnxwq"]
+
+[node name="Player" type="Node3D" unique_id=877315769]
+script = ExtResource("1_vgqql")
+turn_speed = null
+max_lean = null
+lean_deadzone = null
+lean_speed = null
+smoothness = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=431085661]
+visible = false
+mesh = SubResource("CapsuleMesh_qnxwq")
+
+[node name="Head" type="Node3D" parent="." unique_id=918834939]
+
+[node name="CameraPivot" type="Node3D" parent="Head" unique_id=1212069225]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6805519, 0)
+script = ExtResource("1_v0iea")
+max_lean = Vector2(4, 7)
+lean_deadzone = null
+lean_speed = Vector2(0.005, 0.008)
+smoothness = null
+
+[node name="Camera" type="Camera3D" parent="Head/CameraPivot" unique_id=281185297]
+unique_name_in_owner = true
+current = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=933530641]
+
+[node name="Cursor" type="TextureRect" parent="UI" unique_id=1171320561]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_6t5aa")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_cvnsp")
+cursor_distance = null
+cursor_sensitivity = null
+smoothness = 26.7585

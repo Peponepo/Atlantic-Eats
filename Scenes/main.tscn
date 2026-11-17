@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://60mq08ca31b5"]
 
 [ext_resource type="PackedScene" uid="uid://tettfd0lgrqg" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://8dacil83l2te" path="res://Art/2D/Planceholder/Hand.png" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://b7jtu2hwioe2s" path="res://Scenes/submarine.tscn" id="2_bo1nx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -10,11 +12,13 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 sky_material = SubResource("ProceduralSkyMaterial_jjgbg")
 
 [sub_resource type="Environment" id="Environment_8gbba"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.22521952, 0.40575567, 0.58833843, 1)
 sky = SubResource("Sky_bo1nx")
 glow_enabled = true
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_qnxwq"]
+fog_enabled = true
+fog_light_color = Color(0.43614408, 0.563695, 0.6967849, 1)
+fog_density = 0.059
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1kix"]
 
@@ -22,6 +26,9 @@ glow_enabled = true
 material = SubResource("StandardMaterial3D_d1kix")
 size = Vector2(40, 40)
 orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgqql"]
+albedo_color = Color(0.16924527, 0.1692453, 0.16924527, 1)
 
 [node name="Main" type="Node3D" unique_id=499621592]
 
@@ -32,13 +39,13 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=257886883]
 environment = SubResource("Environment_8gbba")
 
-[node name="WorldFloor" type="StaticBody3D" parent="." unique_id=531696396]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldFloor" unique_id=793624082]
-shape = SubResource("WorldBoundaryShape3D_qnxwq")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldFloor" unique_id=1558813519]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1558813519]
 mesh = SubResource("QuadMesh_qnxwq")
+surface_material_override/0 = SubResource("StandardMaterial3D_vgqql")
 
 [node name="Player" parent="." unique_id=1561232060 instance=ExtResource("1_jjgbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026848793, 1, 0.13910866)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026848793, 1.559407, 0.13910866)
+cursor_default_tex = ExtResource("2_8gbba")
+
+[node name="Submarine" parent="." unique_id=1464695237 instance=ExtResource("2_bo1nx")]
+transform = Transform3D(-2.066378, 0, -3.1201444e-07, 0, 2.066378, 0, 3.1201444e-07, 0, -2.066378, 0.022969663, 1.5553766, 0.05600512)

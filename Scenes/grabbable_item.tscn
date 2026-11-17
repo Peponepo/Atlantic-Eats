@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bc63753wvisrt"]
+
+[ext_resource type="Script" uid="uid://bo01uqk7wixay" path="res://Scripts/grabbable_item.gd" id="1_mo35o"]
+[ext_resource type="Texture2D" uid="uid://nb4u6yoat2wl" path="res://Art/2D/Item/Marlinboros.png" id="1_n7yxa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6t5aa"]
+radius = 0.10453754
+
+[node name="GrabbableItem" type="Area3D" unique_id=998125772]
+transform = Transform3D(1, 0, -3.5527137e-14, 0, 1, 0, 3.5527137e-14, 0, 1, 0, 0, 0)
+script = ExtResource("1_mo35o")
+size = 0.9755
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=444428938]
+transform = Transform3D(1, 0, -2.494005e-12, 0, 1, 0, 2.494005e-12, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_6t5aa")
+debug_color = Color(0.87734646, 0.58203965, 0.60579157, 1)
+
+[node name="Sprite" type="Sprite3D" parent="." unique_id=869108981]
+transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0, -0.017051682, 0)
+pixel_size = 0.0001
+billboard = 2
+no_depth_test = true
+texture = ExtResource("1_n7yxa")

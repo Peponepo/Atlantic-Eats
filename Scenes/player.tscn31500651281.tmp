@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://tettfd0lgrqg"]
+
+[ext_resource type="Script" uid="uid://clgb565anihj4" path="res://Scripts/player_controller.gd" id="1_vgqql"]
+[ext_resource type="Script" uid="uid://dgcf70ag7gdiu" path="res://Scripts/cursor.gd" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://8dacil83l2te" path="res://Art/2D/Planceholder/Hand.png" id="3_vgqql"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qnxwq"]
+
+[node name="Player" type="Node3D" unique_id=877315769]
+script = ExtResource("1_vgqql")
+turn_speed = null
+max_lean = null
+lean_deadzone = Vector2(2, 3)
+lean_speed = Vector2(0.01, 0.02)
+snap_cursor = null
+cursor_default_scale = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=431085661]
+visible = false
+mesh = SubResource("CapsuleMesh_qnxwq")
+
+[node name="Head" type="Node3D" parent="." unique_id=918834939]
+
+[node name="CameraPivot" type="Node3D" parent="Head" unique_id=1212069225]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6805519, 0)
+
+[node name="Camera" type="Camera3D" parent="Head/CameraPivot" unique_id=281185297]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14196438, 0)
+current = true
+
+[node name="CursorRaycast" type="RayCast3D" parent="Head/CameraPivot/Camera" unique_id=754597761]
+unique_name_in_owner = true
+collide_with_areas = true
+collide_with_bodies = false
+debug_shape_custom_color = Color(1, 0, 0.69803923, 1)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=933530641]
+
+[node name="CursorHolder" type="Node2D" parent="UI" unique_id=1808868553]
+unique_name_in_owner = true
+script = ExtResource("2_cvnsp")
+
+[node name="Cursor" type="TextureRect" parent="UI/CursorHolder" unique_id=1171320561]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_vgqql")
+expand_mode = 1
+stretch_mode = 5
