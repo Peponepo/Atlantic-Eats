@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://60mq08ca31b5"]
 
 [ext_resource type="PackedScene" uid="uid://tettfd0lgrqg" path="res://Scenes/player.tscn" id="1_jjgbg"]
-[ext_resource type="Texture2D" uid="uid://8dacil83l2te" path="res://Art/2D/Planceholder/Hand.png" id="2_8gbba"]
+[ext_resource type="Texture2D" uid="uid://8dacil83l2te" path="res://Art/2D/Placeholder/Hand.png" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://b7jtu2hwioe2s" path="res://Scenes/submarine.tscn" id="2_bo1nx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
